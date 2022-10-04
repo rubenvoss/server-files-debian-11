@@ -1,6 +1,6 @@
 #!bin/bash
 
-docker pull example/repository:latest
-docker stop SAMPLE_APP
+docker pull rubenvoss/rails-production:latest
+docker stop rails_production_server
 docker system prune -f
-docker run -d --name=SAMPLE_APP example/repository:latest
+docker run -d --name=rails_production_server rubenvoss/rails-production:latest
