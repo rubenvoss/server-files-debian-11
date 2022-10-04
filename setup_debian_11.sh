@@ -5,10 +5,14 @@ sudo apt update
 sudo apt upgrade -y
 sudo apt install build-essential libpcre3 libpcre3-dev zlib1g zlib1g-dev libssl-dev unzip webhook git -y
 
+
 # Download repo with configuration files
 wget https://github.com/rubenvoss/server-files-debian-11/archive/refs/heads/main.zip
 unzip main.zip
-sudo rm main.zip
+rm main.zip
+# copies redeploy folder into home folder
+cp -r server-files-debian-11-main/redeploy ~
+
 
 ### This script installs nginx on a VPS with the Debian 11 OS
 # download nginx && install nginx
@@ -20,15 +24,12 @@ cd nginx-1.22.0 || exit
             --with-http_ssl_module
 sudo make
 sudo make install
-
 # copy nginx.service file to add nginx to systemd
 sudo rm -f /lib/systemd/system/nginx.service
 sudo cp ~/server-files-debian-11-main/nginx.service /lib/systemd/system/nginx.service
-
 # copy nginx.conf to setup configuration
 sudo rm -f /etc/nginx/nginx.conf
 sudo cp ~/server-files-debian-11-main/nginx.conf /etc/nginx/nginx.conf
-
 # nginx enable autostart
 sudo systemctl enable nginx
 
@@ -46,9 +47,11 @@ sudo usermod -a -G docker admin
 
 
 
+### this section sets up the docker compose file
 
 
 
+### cleaning up the ~/server-files-debian-11-main folder
 
 # reboot server
 sudo reboot
