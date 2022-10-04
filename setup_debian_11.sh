@@ -23,11 +23,11 @@ sudo make install
 
 # copy nginx.service file to add nginx to systemd
 sudo rm -f /lib/systemd/system/nginx.service
-sudo cp ~/devops-rails-main/nginx/nginx.service /lib/systemd/system/nginx.service
+sudo cp ~/server-files-debian-11-main/nginx.service /lib/systemd/system/nginx.service
 
 # copy nginx.conf to setup configuration
 sudo rm -f /etc/nginx/nginx.conf
-sudo cp ~/devops-rails-main/nginx/nginx.conf /etc/nginx/nginx.conf
+sudo cp ~/server-files-debian-11-main/nginx.conf /etc/nginx/nginx.conf
 
 # nginx enable autostart
 sudo systemctl enable nginx
