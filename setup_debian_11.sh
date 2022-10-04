@@ -11,9 +11,9 @@
 # unzip main.zip
 
 # download system dependencies
-apt update
-apt upgrade -y
-apt install build-essential libpcre3 libpcre3-dev zlib1g zlib1g-dev libssl-dev unzip webhook -y
+sudo apt update
+sudo apt upgrade -y
+sudo apt install build-essential libpcre3 libpcre3-dev zlib1g zlib1g-dev libssl-dev unzip webhook git -y
 
 ### This script installs nginx on a VPS with the Debian 11 OS
 # download nginx && install nginx
