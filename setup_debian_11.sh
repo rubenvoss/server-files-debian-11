@@ -1,19 +1,14 @@
 #!/bin/bash
 
-# you have to have downloaded this repo, to have the nginx.service and nginx.conf files available.
-# git clone git@github.com:rubenvoss/server-files-debian-11.git
-# cd server-files-debian-11
-
-# alternatively you can download the zip file on github and unzip it on the sever:
-# sudo apt update
-# sudo apt install unzip
-# wget https://github.com/rubenvoss/server-files-debian-11/archive/refs/heads/main.zip
-# unzip main.zip
-
 # download system dependencies
 sudo apt update
 sudo apt upgrade -y
 sudo apt install build-essential libpcre3 libpcre3-dev zlib1g zlib1g-dev libssl-dev unzip webhook git -y
+
+# Download repo with configuration files
+wget https://github.com/rubenvoss/server-files-debian-11/archive/refs/heads/main.zip
+unzip main.zip
+sudo rm main.zip
 
 ### This script installs nginx on a VPS with the Debian 11 OS
 # download nginx && install nginx
