@@ -21,8 +21,6 @@ cd nginx-1.22.0 || exit
 sudo make
 sudo make install
 
-
-
 # copy nginx.service file to add nginx to systemd
 sudo rm -f /lib/systemd/system/nginx.service
 sudo cp ~/devops-rails-main/nginx/nginx.service /lib/systemd/system/nginx.service
@@ -31,7 +29,7 @@ sudo cp ~/devops-rails-main/nginx/nginx.service /lib/systemd/system/nginx.servic
 sudo rm -f /etc/nginx/nginx.conf
 sudo cp ~/devops-rails-main/nginx/nginx.conf /etc/nginx/nginx.conf
 
-# nginx autostart
+# nginx enable autostart
 sudo systemctl enable nginx
 
 
@@ -45,6 +43,9 @@ sudo usermod -a -G docker admin
 
 
 ### this section sets up webhook
+
+
+
 
 
 
