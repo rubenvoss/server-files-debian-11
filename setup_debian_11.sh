@@ -18,29 +18,29 @@ cd nginx-1.22.0 || exit
 ./configure --sbin-path=/usr/bin/nginx --conf-path=/etc/nginx/nginx.conf --error-log-path=/var/log/nginx/error.log \
             --http-log-path=/var/log/nginx/access.log --with-pcre --pid-path=/var/run/nginx.pid \
             --with-http_ssl_module
-make
-make install
+sudo make
+sudo make install
 
 
 
 # copy nginx.service file to add nginx to systemd
-rm -f /lib/systemd/system/nginx.service
-cp ~/devops-rails-main/nginx/nginx.service /lib/systemd/system/nginx.service
+sudo rm -f /lib/systemd/system/nginx.service
+sudo cp ~/devops-rails-main/nginx/nginx.service /lib/systemd/system/nginx.service
 
 # copy nginx.conf to setup configuration
-rm -f /etc/nginx/nginx.conf
-cp ~/devops-rails-main/nginx/nginx.conf /etc/nginx/nginx.conf
+sudo rm -f /etc/nginx/nginx.conf
+sudo cp ~/devops-rails-main/nginx/nginx.conf /etc/nginx/nginx.conf
 
 # nginx autostart
-systemctl enable nginx
+sudo systemctl enable nginx
 
 
 
 ### this script installs docker on a VPS with Debian 11 OS
 curl -fsSL https://get.docker.com -o get-docker.sh
-sh get-docker.sh
+sudo sh get-docker.sh
 # so you don't have to type sudo before every docker command
-usermod -a -G docker admin
+sudo usermod -a -G docker admin
 
 
 
@@ -50,13 +50,7 @@ usermod -a -G docker admin
 
 
 # reboot server
-reboot
+sudo reboot
 
-
-
-# check for the status of nginx
-# systemctl status nginx
-# checks for the nginx version, was it installed?
-# nginx -V
 
 # remove leftover files
