@@ -16,9 +16,7 @@ services:
 
   rails_production_server:
     container_name: rails_production_server
-    build:
-      context: .
-      dockerfile: Dockerfile-production
+    image: rubenvoss/rails-production:latest
     environment:
       - RAILS_ENV=production
     ports:
