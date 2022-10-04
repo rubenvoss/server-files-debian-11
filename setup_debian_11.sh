@@ -4,6 +4,12 @@
 # git clone git@github.com:rubenvoss/server-files-debian-11.git
 # cd server-files-debian-11
 
+# alternatively you can download the zip file on github and unzip it on the sever:
+# sudo apt update
+# sudo apt install unzip
+# wget https://github.com/rubenvoss/server-files-debian-11/archive/refs/heads/main.zip
+# unzip main.zip
+
 # download system dependencies
 apt update
 apt upgrade -y
