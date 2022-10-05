@@ -10,7 +10,6 @@ sudo apt install build-essential libpcre3 libpcre3-dev zlib1g zlib1g-dev libssl-
 ### Download repo with configuration files
 wget https://github.com/rubenvoss/server-files-debian-11/archive/refs/heads/main.zip
 unzip main.zip
-rm main.zip
 # copies redeploy folder into home folder
 cp -r server-files-debian-11-main/redeploy ~
 
@@ -41,16 +40,20 @@ sudo sh get-docker.sh
 sudo usermod -a -G docker admin
 
 
-
 ### this section sets up webhook
-
-
+sudo cp ~/server-files-debian-11-main/webhook.service /lib/systemd/system/webhook.service
+sudo systemctl enable webhook.service
 
 ### this section sets up the docker compose file
 
 
 
-### cleaning up the ~/server-files-debian-11-main folder
+### cleaning up
+sudo rm -r ~/nginx-1.22.0
+sudo rm -r ~/server-files-debian-11-main
+rm ~/main.zip
+rm ~/nginx-1.22.0.tar.gz
+
 
 # reboot server
 sudo reboot
