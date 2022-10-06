@@ -6,6 +6,8 @@ sudo apt update
 sudo apt upgrade -y
 sudo apt install build-essential libpcre3 libpcre3-dev zlib1g zlib1g-dev libssl-dev unzip webhook git -y
 
+# set timezone to berlin
+sudo timedatectl set-timezone Europe/Berlin
 
 ### Download repo with configuration files
 wget https://github.com/rubenvoss/server-files-debian-11/archive/refs/heads/main.zip
