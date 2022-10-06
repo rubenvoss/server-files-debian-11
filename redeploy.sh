@@ -1,5 +1,4 @@
-#!bin/bash
-
+#!/bin/bash
 docker pull rubenvoss/rails-production:latest
 docker stop rails_production_server
 docker system prune -f
