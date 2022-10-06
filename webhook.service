@@ -1,9 +1,11 @@
 [Unit]
-Description=Small server for creating HTTP endpoints (hooks)
-Documentation=https://github.com/adnanh/webhook/
+Description=Webhook Service
+After=network.target
 
 [Service]
-ExecStart=/usr/bin/webhook -nopanic -hooks ~/redeploy/hooks.json -verbose
+ExecStart=/bin/webhook -hooks=/opt/webhook/hooks.json -verbose=true
+WorkingDirectory=/opt/webhook
+KillMode=process
 
 [Install]
 WantedBy=multi-user.target
