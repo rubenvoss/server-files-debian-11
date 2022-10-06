@@ -41,8 +41,13 @@ sudo usermod -a -G docker admin
 
 
 ### this section sets up webhook
+sudo mkdir /opt/webhook
 sudo cp ~/server-files-debian-11-main/webhook.service /lib/systemd/system/webhook.service
+sudo cp ~/server-files-debian-11-main/hooks.json /opt/webhook/
+sudo cp ~/server-files-debian-11-main/redeploy.sh /opt/webhook/
 sudo systemctl enable webhook.service
+
+
 
 ### this section sets up the docker compose file
 
