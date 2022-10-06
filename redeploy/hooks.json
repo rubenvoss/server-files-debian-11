@@ -1,8 +1,0 @@
-[
-  {
-    "id": "redeploy",
-    "execute-command": "/home/admin/redeploy/redeploy.sh",
-    "command-working-directory": "/home/admin/redeploy",
-    "response-message": "Redeploying API server."
-  }
-]

@@ -1,0 +1,8 @@
+[
+  {
+    "id": "redeploy",
+    "execute-command": "/opt/webhooks/redeploy.sh",
+    "command-working-directory": "/opt/webhooks",
+    "response-message": "Redeploying API server."
+  }
+]
