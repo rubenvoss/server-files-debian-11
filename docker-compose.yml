@@ -27,9 +27,10 @@ services:
     stdin_open: true
     tty: true
     volumes:
-      - ./config/master.key:/goclimb/config/master.key:ro
-      - ./config/credentials/production.key:/goclimb/config/credentials/production.key:ro
-      - ./config/credentials/development.key:/goclimb/config/credentials/development.key:ro
+      - ./keys/master.key:/goclimb/config/master.key:ro
+      - ./keys/cloudinary.yml:/goclimb/config/cloudinary.yml:ro
+      - ./keys/credentials/production.key:/goclimb/config/credentials/production.key:ro
+      - ./keys/credentials/development.key:/goclimb/config/credentials/development.key:ro
     # you HAVE to run the command here, otherwise docker container exits with code 0
     command: ["rails", "server", "-b", "0.0.0.0"]
     # command: ["/bin/ash"]
