@@ -12,6 +12,14 @@ sudo timedatectl set-timezone Europe/Berlin
 ### Download repo with configuration files
 wget https://github.com/rubenvoss/server-files-debian-11/archive/refs/heads/main.zip
 unzip main.zip
+### this section sets up webhook & docker compose file
+sudo mkdir /opt/webhook
+sudo cp ~/server-files-debian-11-main/webhook.service /lib/systemd/system/webhook.service
+sudo cp ~/server-files-debian-11-main/hooks.json /opt/webhook/
+sudo cp ~/server-files-debian-11-main/redeploy.sh /opt/webhook/
+sudo cp ~/server-files-debian-11-main/docker-compose.yml /opt/webhook/
+sudo chmod +x /opt/webhook/redeploy.sh
+sudo systemctl enable webhook.service
 
 
 ### download nginx && install nginx
@@ -38,19 +46,6 @@ curl -fsSL https://get.docker.com -o get-docker.sh
 sudo sh get-docker.sh
 # so you don't have to type sudo before every docker command
 sudo usermod -a -G docker admin
-
-
-### this section sets up webhook
-sudo mkdir /opt/webhook
-sudo cp ~/server-files-debian-11-main/webhook.service /lib/systemd/system/webhook.service
-sudo cp ~/server-files-debian-11-main/hooks.json /opt/webhook/
-sudo cp ~/server-files-debian-11-main/redeploy.sh /opt/webhook/
-sudo cp ~/server-files-debian-11-main/docker-compose.yml /opt/webhook/
-sudo chmod +x /opt/webhook/redeploy.sh
-sudo systemctl enable webhook.service
-
-
-### this section sets up the docker compose file
 
 
 
